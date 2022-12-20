@@ -6,13 +6,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Data
 @Entity
 @Table(name = "Questions")
-public class Question {
+public class Question implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
@@ -20,6 +24,9 @@ public class Question {
     private String body;
     private Long user_id;
     private Long views;
+    @Transient
+    private List<Tag> tags;
+    @CreationTimestamp
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 }

@@ -5,13 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "Comments")
-public class Comment {
+public class Comment implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
