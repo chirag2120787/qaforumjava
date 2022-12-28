@@ -1,17 +1,20 @@
 package com.personal.qaforumjava.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Data
 @Entity
 @Table(name = "Users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,6 +24,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    @CreationTimestamp
     private LocalDateTime created_at;
     private LocalDateTime last_login;
 

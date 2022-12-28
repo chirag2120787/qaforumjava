@@ -1,8 +1,10 @@
 package com.personal.qaforumjava.controllers;
 
 import com.personal.qaforumjava.models.Question;
+import com.personal.qaforumjava.service.QuestionService;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/questions")
+@AllArgsConstructor
 class QuestionController {
+
+    private final QuestionService questionService;
 
     @GetMapping
     public List<Question> getAllQuestions() {
@@ -23,12 +28,12 @@ class QuestionController {
 
     @GetMapping("/{id}")
     public Question getQuestionById(@PathVariable Long id) {
-        return null;
+        return questionService.getQuestionById(id);
     }
 
     @PostMapping
     public Question createQuestion(@RequestBody Question question) {
-        return null;
+        return questionService.handleCreateQuestion(question);
     }
 
     @PutMapping("/{id}")
