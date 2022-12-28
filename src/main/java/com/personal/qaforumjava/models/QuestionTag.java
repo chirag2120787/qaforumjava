@@ -7,24 +7,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "Comments")
-public class Comment implements Serializable{
+@NoArgsConstructor
+@Table(name = "QuestionTags")
+public class QuestionTag implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    @Column(name = "user_id")
-    private Long userId;
-    @Column(name = "question_id")
+    @Column(name="question_id")
     private Long questionId;
-    @Column(name = "answer_id")
-    private Long answerId;
-    private String body;
-    private LocalDateTime created_at;
-    private LocalDateTime updated_at;
-
+    @Column(name = "tag_id")
+    private Long tagId;
 }
+
+
+
+
+

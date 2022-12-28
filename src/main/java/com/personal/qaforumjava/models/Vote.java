@@ -1,5 +1,6 @@
 package com.personal.qaforumjava.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
@@ -16,8 +17,11 @@ public class Vote implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private Long user_id;
-    private Long question_id;
-    private Long answer_id;
+    @Column(name = "user_id")
+    private Long userId;
+    @Column(name = "question_id")
+    private Long questionId;
+    @Column(name = "answer_id")
+    private Long answerId;
     private Long value;
 }

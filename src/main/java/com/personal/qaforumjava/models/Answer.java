@@ -1,5 +1,6 @@
 package com.personal.qaforumjava.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,8 +17,10 @@ public class Answer implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private Long question_id;
-    private Long user_id;
+    @Column(name = "question_id")
+    private Long questionId;
+    @Column(name = "user_id")
+    private Long userId;
     private String body;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;

@@ -1,5 +1,6 @@
 package com.personal.qaforumjava.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +23,8 @@ public class Question implements Serializable {
     private Long id;
     private String title;
     private String body;
-    private Long user_id;
+    @Column(name = "user_id")
+    private Long userId;
     private Long views;
     @Transient
     private List<Tag> tags;
